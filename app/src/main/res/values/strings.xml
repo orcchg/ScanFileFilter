@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ScanFileFilter</string>
+
+    <string name="btn_start">Start</string>
+
+    <string name="et_regexp_hint">Regexp&#8230;</string>
+    <string name="et_url_hint">https://&#8230;</string>
 </resources>
