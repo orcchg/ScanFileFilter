@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button buttonStart;
@@ -28,21 +31,38 @@ public class MainActivity extends AppCompatActivity {
         buttonReset = findViewById(R.id.btn_reset);
         list = findViewById(R.id.lv_items);
 
+        etUrl.setText("https://");
+
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Check for validity.
+                // Check URL for validity.
                 String url = etUrl.getText().toString();
                 if (url.isEmpty() || !URLUtil.isValidUrl(url)) {
                     etUrl.setError("Invalid URL!");
                     return;
                 }
+
+                // Check regexp for validity.
                 String regexp = etRegexp.getText().toString();
-                if (regexp.isEmpty()) {  // TODO: check regexp for validity
+                if (regexp.isEmpty()) {
                     etRegexp.setError("Wrong regexp!");
                     return;
+                } else {
+                    try {
+                        Pattern.compile(regexp);
+                    } catch (PatternSyntaxException e) {
+                        etRegexp.setError("Wrong regexp!");
+                        return;
+                    }
+
+                    if (!LogReader.getInstance().setFilter(regexp)) {
+                        etRegexp.setError("Wrong regexp!");
+                        return;
+                    }
                 }
 
+                // Start processing.
                 hideViews(true);
                 start(url, regexp);
             }
