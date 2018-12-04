@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:orientation="vertical">
 
     <EditText
@@ -33,10 +34,21 @@
         android:layout_marginEnd="@dimen/std_margin"
         android:text="@string/btn_start"/>
 
+    <Button
+        android:id="@+id/btn_reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/std_margin_small"
+        android:layout_marginStart="@dimen/std_margin"
+        android:layout_marginEnd="@dimen/std_margin"
+        android:text="@string/btn_reset"
+        android:visibility="gone"/>
+
     <ListView
         android:id="@+id/lv_items"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:clipToPadding="false"
         android:paddingTop="@dimen/std_margin_small"
         android:paddingStart="@dimen/std_margin"
