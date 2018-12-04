@@ -3,11 +3,12 @@ package com.orcchg.scanfilefilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -18,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonReset;
     private EditText etUrl;
     private EditText etRegexp;
-    private ListView list;
+    private RecyclerView list;
+
+    private ListAdapter adapter = new ListAdapter();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,13 +78,19 @@ public class MainActivity extends AppCompatActivity {
                 hideViews(false);
             }
         });
+
+        list.setLayoutManager(new LinearLayoutManager(this));
+        list.setAdapter(adapter);
     }
 
     private void start(String url, String regexp) {
-        //
+        adapter.addItem("Hello");
+        adapter.addItem("World");
+        // TODO
     }
 
     private void stop() {
+        adapter.clear();
         // TODO
     }
 
