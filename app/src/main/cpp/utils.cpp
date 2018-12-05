@@ -3,6 +3,7 @@
 #include "utils.h"
 
 namespace util {
+
     bool isValidParensSequence(const char* sequence) {
         size_t size = strlen(sequence);
         if (size == 0) return true;
@@ -33,4 +34,5 @@ namespace util {
 
         return stack.empty();
     }
+
 }
