@@ -1,7 +1,8 @@
 #ifndef SFF_STRUCTURES_H_
 #define SFF_STRUCTURES_H_
 
-#include "Vector.h"
+#include "HashTable.h"
+#include "types.h"
 
 const char EPS = '@';
 const int NO_ID = -1;
@@ -9,7 +10,7 @@ const int NO_ID = -1;
 struct Node;
 
 struct Transition {
-    char c;
+    Key c;
     Node* state;
 
     Transition(): c(EPS), state(nullptr) {}
@@ -19,9 +20,11 @@ struct Transition {
 struct Node {
     int id;
     bool isTerminal;
-    Vector<Transition> transitions;
+    HashTable<Key, Transition> transitions;
 
     Node(): id(NO_ID), isTerminal(false), transitions() {}
 };
+
+struct NoSuchElementException {};
 
 #endif  // SFF_STRUCTURES_H_

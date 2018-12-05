@@ -3,7 +3,7 @@
 
 #include <cstddef>
 
-class CLogReader {
+class CLogReader final {
 public:
     CLogReader();
     virtual ~CLogReader();

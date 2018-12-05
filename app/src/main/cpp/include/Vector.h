@@ -4,7 +4,7 @@
 #include <cstddef>
 
 template <typename T>
-class Vector {
+class Vector final {
 public:
     Vector(size_t size = 32);
     virtual ~Vector();

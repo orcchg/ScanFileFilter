@@ -8,16 +8,14 @@ cmake_minimum_required(VERSION 3.4.1)
 # Gradle automatically packages shared libraries with your APK.
 
 include_directories(src/main/cpp/include)
-add_library( # Sets the name of the library.
-        logreader
-
-        # Sets the library as a shared library.
-        SHARED
-
-        # Provides a relative path to your source file(s).
-        src/main/cpp/CLogReader.cpp
-        src/main/cpp/log_reader.cpp
-        src/main/cpp/Vector.cpp)
+set(SOURCES
+    src/main/cpp/Automaton.cpp
+    src/main/cpp/CLogReader.cpp
+    src/main/cpp/HashTable.cpp
+    src/main/cpp/log_reader.cpp
+    src/main/cpp/Vector.cpp
+)
+add_library(logreader SHARED ${SOURCES})
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
