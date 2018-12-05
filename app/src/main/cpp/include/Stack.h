@@ -14,6 +14,7 @@ public:
     virtual ~Stack();
 
     inline size_t capacity() const { return m_capacity; }
+    inline bool empty() const { return m_size == 0; }
     inline size_t size() const { return m_size; }
 
     void push(const T& item);
