@@ -1,23 +1,23 @@
 #ifndef SFF_VECTOR_H_
 #define SFF_VECTOR_H_
 
-#include "constants.h"
+#include "LinearContainer.h"
 
-// TODO: impl reallocate
 template <typename T>
-class Vector final {
+class Vector final : public LinearContainer<T> {
 public:
     Vector(size_t capacity = TABLE_SIZE);
     virtual ~Vector();
-
-    inline size_t capacity() const { return m_capacity; }
-    inline bool empty() const { return m_size == 0; }
-    inline size_t size() const { return m_size; }
-
-private:
-    size_t m_capacity;
-    size_t m_size;
-    T* m_data;
 };
+
+// ----------------------------------------------------------------------------
+template <typename T>
+Vector<T>::Vector(size_t capacity)
+        : LinearContainer<T>(capacity) {
+}
+
+template <typename T>
+Vector<T>::~Vector() {
+}
 
 #endif  // SFF_VECTOR_H_

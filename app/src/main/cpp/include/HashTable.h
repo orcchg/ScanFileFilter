@@ -1,7 +1,7 @@
 #ifndef SFF_HASH_TABLE_H_
 #define SFF_HASH_TABLE_H_
 
-#include "constants.h
+#include "constants.h"
 #include "types.h"
 
 template <typename K, typename V>
