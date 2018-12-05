@@ -1,10 +1,8 @@
 #ifndef SFF_HASH_TABLE_H_
 #define SFF_HASH_TABLE_H_
 
-#include <cstddef>
+#include "constants.h
 #include "types.h"
-
-const size_t TABLE_SIZE = 32;
 
 template <typename K, typename V>
 class HashNode final {

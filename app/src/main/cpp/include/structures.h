@@ -1,11 +1,9 @@
 #ifndef SFF_STRUCTURES_H_
 #define SFF_STRUCTURES_H_
 
+#include "constants.h"
 #include "HashTable.h"
 #include "types.h"
-
-const char EPS = '@';
-const int NO_ID = -1;
 
 struct Node;
 

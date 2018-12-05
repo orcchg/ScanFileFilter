@@ -13,6 +13,8 @@ set(SOURCES
     src/main/cpp/CLogReader.cpp
     src/main/cpp/HashTable.cpp
     src/main/cpp/log_reader.cpp
+    src/main/cpp/Stack.cpp
+    src/main/cpp/utils.cpp
     src/main/cpp/Vector.cpp
 )
 add_library(logreader SHARED ${SOURCES})

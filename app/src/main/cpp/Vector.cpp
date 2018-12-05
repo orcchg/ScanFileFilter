@@ -1,12 +1,13 @@
 #include "Vector.h"
 
 template <typename T>
-Vector<T>::Vector(size_t size)
-    : size(size)
-    , data(new T[size]) {}
+Vector<T>::Vector(size_t capacity)
+    : m_capacity(capacity)
+    , m_size(0)
+    , m_data(new T[capacity]) {
+}
 
 template <typename T>
 Vector<T>::~Vector() {
-    delete [] data;
-    data = nullptr;
+    delete [] m_data; m_data = nullptr;
 }
